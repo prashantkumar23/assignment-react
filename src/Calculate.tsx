@@ -18,12 +18,20 @@ const Test: React.FC<TestProps> = ({
   return (
     <div>
       <h3>{description} Two Numbers</h3>
-      <p>Total Value {totalValue}</p>
+      <p>Total Value {totalValue.toFixed(2)}</p>
       <input
-        value={input}
         onChange={(e) => setInput(parseInt(e.target.value) || input)}
+        value={input}
       />
-      <button onClick={() => Func(input)}>{buttonText}</button>
+      <button
+        onClick={() => {
+          Func(input);
+          setInput(0);
+        }}
+        style={{ display: "block" }}
+      >
+        {buttonText}
+      </button>
     </div>
   );
 };

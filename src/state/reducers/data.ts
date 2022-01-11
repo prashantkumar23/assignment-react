@@ -6,19 +6,27 @@ export interface AppState {
 }
 
 const initialState: AppState = {
-    totalValue: 5,
+    totalValue: 0,
 };
 
 const reducer = (state: AppState = initialState, action: Action) => {
     switch (action.type) {
         case ActionType.ADD:
-            return state.totalValue + action.payload
+            return {
+                totalValue: state.totalValue + action.payload
+            }
         case ActionType.SUBTRACT:
-            return state.totalValue - action.payload
+            return {
+                totalValue: state.totalValue - action.payload
+            }
         case ActionType.DIVISON:
-            return state.totalValue / action.payload
+            return {
+                totalValue: state.totalValue / action.payload
+            }
         case ActionType.MULTIPLY:
-            return state.totalValue * action.payload
+            return {
+                totalValue: state.totalValue * action.payload
+            }
         default:
             return state
     }

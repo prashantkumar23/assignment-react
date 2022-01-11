@@ -1,13 +1,13 @@
-import Test from "./Test";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 import { useActions } from "./hooks/useAction";
 import { AppState } from "./state/reducers/data";
+import Calculate from "./Calculate";
 
 const App: React.FC = () => {
   const stateValue: AppState = useTypedSelector(({ state }) => state);
-  console.log("State", stateValue);
   const { Add, Subtract, Divison, Multiply } = useActions();
+
   return (
     <Router>
       <div
@@ -23,8 +23,10 @@ const App: React.FC = () => {
               flexDirection: "column",
               alignItems: "center",
               justifyItems: "center",
+              rowGap: 15,
             }}
           >
+            <h3>Menu</h3>
             <Link to="/add">
               <button>Add</button>
             </Link>
@@ -42,9 +44,15 @@ const App: React.FC = () => {
         <div style={{ backgroundColor: "goldenrod" }}>
           <Routes>
             <Route
+              path="/"
+              element={
+                <h1 style={{ textAlign: "center" }}>Basic Calculator</h1>
+              }
+            />
+            <Route
               path="/add"
               element={
-                <Test
+                <Calculate
                   buttonText="Add"
                   description="Add"
                   totalValue={stateValue.totalValue}
@@ -56,7 +64,7 @@ const App: React.FC = () => {
             <Route
               path="/subtract"
               element={
-                <Test
+                <Calculate
                   buttonText="Subtract"
                   description="Subtract"
                   totalValue={stateValue.totalValue}
@@ -68,7 +76,7 @@ const App: React.FC = () => {
             <Route
               path="/divison"
               element={
-                <Test
+                <Calculate
                   buttonText="Division"
                   description="Division"
                   totalValue={stateValue.totalValue}
@@ -80,7 +88,7 @@ const App: React.FC = () => {
             <Route
               path="/multiply"
               element={
-                <Test
+                <Calculate
                   buttonText="Multiply"
                   description="Multiply"
                   totalValue={stateValue.totalValue}
