@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-interface TestProps {
+interface CalculateProps {
   totalValue: number;
   description: string;
   buttonText: string;
   Func: (value: number) => void;
 }
 
-const Test: React.FC<TestProps> = ({
+const Calulate: React.FC<CalculateProps> = ({
   buttonText,
   description,
   totalValue,
@@ -36,4 +36,4 @@ const Test: React.FC<TestProps> = ({
   );
 };
 
-export default Test;
+export default Calulate;

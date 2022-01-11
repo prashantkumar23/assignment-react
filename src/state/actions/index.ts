@@ -1,7 +1,6 @@
 import { ActionType } from '../action-types';
 
 
-// Login Actions
 export interface AddAction {
     type: ActionType.ADD
     payload: number

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useTypedSelector } from "./hooks/useTypedSelector";
 import { useActions } from "./hooks/useAction";
 import { AppState } from "./state/reducers/data";
-import Calculate from "./Calculate";
+import Calculate from "./components/Calculate";
 
 const App: React.FC = () => {
   const stateValue: AppState = useTypedSelector(({ state }) => state);
