@@ -2,4 +2,4 @@
 
 ### Typescript React and Redux
 
-live site:
+live site: https://inspiring-saha-29ae5c.netlify.app/
