@@ -5,9 +5,13 @@ import { AppState } from "./state/reducers/data";
 import Calculate from "./components/Calculate";
 import { loadTheme } from "./utils/ThemeParser";
 
-// Edit these to change the theme
+// Edit these to change the theme or use env file
 // Argu: "DEFAULT" "COMPANYA" "COMPANYB"
-const theme = loadTheme();
+const companyName =
+  process.env.REACT_APP_COMPANY_NAME === undefined
+    ? "DEFAULT"
+    : process.env.REACT_APP_COMPANY_NAME;
+const theme = loadTheme(companyName);
 
 const App: React.FC = () => {
   const stateValue: AppState = useTypedSelector(({ state }) => state);
