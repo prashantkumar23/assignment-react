@@ -1,0 +1,16 @@
+{
+    "CompanyA": {
+        "name": "CompanyA",
+        "backgroundColor": "red",
+        "color": "red",
+        "fontSize": "18px",
+        "logo": "companyA-logo.svg"
+    },
+    "CompanyB": {
+        "name": "CompanyA",
+        "backgroundColor": "blue",
+        "color": "blue",
+        "fontSize": "20px",
+        "logo": "companyB-logo.svg"
+    }
+}

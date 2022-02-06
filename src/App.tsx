@@ -3,6 +3,11 @@ import { useTypedSelector } from "./hooks/useTypedSelector";
 import { useActions } from "./hooks/useAction";
 import { AppState } from "./state/reducers/data";
 import Calculate from "./components/Calculate";
+import { loadTheme } from "./utils/ThemeParser";
+
+// Edit these to change the theme
+// Argu: "DEFAULT" "COMPANYA" "COMPANYB"
+const theme = loadTheme();
 
 const App: React.FC = () => {
   const stateValue: AppState = useTypedSelector(({ state }) => state);
@@ -16,7 +21,12 @@ const App: React.FC = () => {
           gridTemplateColumns: "0.5fr 2fr",
         }}
       >
-        <div style={{ backgroundColor: "gainsboro", minHeight: "95vh" }}>
+        <div
+          style={{
+            backgroundColor: theme.backgroundColor,
+            minHeight: "95vh",
+          }}
+        >
           <div
             style={{
               display: "flex",
@@ -26,7 +36,9 @@ const App: React.FC = () => {
               rowGap: 15,
             }}
           >
-            <h3>Menu</h3>
+            {/* Theme Applied */}
+            <h3>{theme.name}</h3>
+            <img src={theme.logo} alt={theme.name} />
             <Link to="/add">
               <button>Add</button>
             </Link>
@@ -41,7 +53,8 @@ const App: React.FC = () => {
             </Link>
           </div>
         </div>
-        <div style={{ backgroundColor: "goldenrod" }}>
+        {/* Theme Applied */}
+        <div style={{ backgroundColor: theme.backgroundColor }}>
           <Routes>
             <Route
               path="/"
